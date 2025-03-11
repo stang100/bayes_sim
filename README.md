@@ -38,15 +38,7 @@ pip install -r requirements.txt
    ```bash
    python src/data.py
    ```
-2. **Train the Mixture Density Network (MDN)**:
-   ```bash
-   python src/model.py
-   ```
-3. **Train policies using PPO**:
-   ```bash
-   python src/policy_training.py
-   ```
-4. **Evaluate policies and visualize results**:
+2. **Train Mixture Density Network and Evaluate policies and visualize results**:
    ```bash
    python src/main.py
    ```
