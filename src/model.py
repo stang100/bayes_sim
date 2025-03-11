@@ -39,7 +39,7 @@ class MDN(nn.Module):
         sigma = torch.exp(self.sigma(h)).view(-1, self.num_components, self.output_dim)
         return pi, mu, sigma
 
-def train_mdn(params, data, epochs=200, batch_size=32):
+def train_mdn(params, data, epochs=400, batch_size=32):
     """Train the MDN model."""
     dataset = TensorDataset(torch.tensor(data, dtype=torch.float32), torch.tensor(params, dtype=torch.float32))
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
