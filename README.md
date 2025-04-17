@@ -34,26 +34,41 @@ pip install -r requirements.txt
 ```
 
 ## Running the Project
-1. **Generate simulation data**:
-   ```bash
-   python src/data.py
-   ```
-2. **Train Mixture Density Network and Evaluate policies and visualize results**:
+1. **Quick Results (Recommended)**:
+   This project already contains generated data and trained policies. To see results comparison immediately:
    ```bash
    python src/main.py
    ```
 
+2. **Retrain Policies Only**:
+   If you want to retrain the policies with the already generated data in this project directory:
+   ```bash
+   python src/policy_training.py
+   python src/main.py
+   ```
+
+3. **Complete Training Pipeline**:
+   If you want to run the entire process from scratch:
+   ```bash
+   python src/data.py              # Generate simulation data
+   python src/policy_training.py   # Train policies
+   python src/main.py              # Evaluate and visualize results
+   ```
+
 ## Expected Outputs
 After running `main.py`, you will see:
-- **Total rewards comparison** (Uniform vs. BayesSim policy)
-- **Learning curve plots**
-- **Posterior distribution visualizations**
-- **Reward distributions for trained policies**
+- **Performance comparison** across different pendulum environments (Default, Light Short, Heavy Long)
+- **Visualizations of policy comparisons** showing total reward differences
+- **Plots** comparing uniform prior policy vs. Flow-BayesSim policy
+- **Overall improvement percentage** across all test environments
 
-## Future Improvements
-- Extend to **more complex environments**.
-- Implement **additional inference methods**.
-- Improve **MDN training for better posterior accuracy**.
+Note: Results may vary between runs due to the stochastic nature of reinforcement learning training. The Flow-BayesSim approach may sometimes outperform the uniform prior approach and sometimes underperform, depending on training conditions.
+
+## Potential Improvements
+- **Increase training stability** by using more timesteps or multiple random seeds
+- **Implement ensemble methods** to reduce variance in policy performance
+- **Add adaptive parameter sampling** to better explore the parameter space
+- **Extend to more complex environments** beyond the pendulum system
 
 ## License
 This project is open-source and available for modification.
